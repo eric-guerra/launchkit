@@ -1,0 +1,22 @@
+{
+  "name": "launchkit",
+  "version": "1.0.0",
+  "description": "Static landing-page generator: Handlebars templates + Sass themes + Grunt workflow",
+  "bin": { "launchkit": "bin/launchkit.js" },
+  "main": "lib/build.js",
+  "scripts": {
+    "build": "node bin/launchkit.js build example/site.json -o dist",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": { "node": ">=21" },
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "sass": "^1.77.6"
+  },
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-connect": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}
