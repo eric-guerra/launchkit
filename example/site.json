@@ -1,0 +1,77 @@
+{
+  "title": "Brewly",
+  "description": "Inventory and ordering for independent coffee shops.",
+  "baseUrl": "https://brewly.example.com",
+  "theme": "sunset",
+  "footer": "Made in Houston · [Privacy](/privacy)",
+  "pages": [
+    {
+      "path": "/",
+      "label": "Home",
+      "sections": [
+        {
+          "type": "hero",
+          "eyebrow": "For independent cafés",
+          "headline": "Never run out of oat milk again",
+          "subheadline": "Brewly tracks your stock, predicts what you'll need, and places supplier orders **before** you run low.",
+          "primary": { "label": "Start free trial", "href": "#signup" },
+          "secondary": { "label": "See pricing", "href": "#pricing" }
+        },
+        { "type": "logos", "heading": "Trusted by 400+ shops", "items": ["Bean There", "Grind House", "Daily Drip", "Roast & Co."] },
+        {
+          "type": "features",
+          "heading": "Everything behind the counter",
+          "items": [
+            { "icon": "📦", "title": "Live inventory", "body": "Counts update with every sale from your POS." },
+            { "icon": "📈", "title": "Smart reorders", "body": "Par levels adjust to your *actual* weekly demand." },
+            { "icon": "🤝", "title": "Supplier ordering", "body": "Send POs to roasters and dairies in one click." }
+          ]
+        },
+        {
+          "type": "pricing",
+          "heading": "Simple pricing",
+          "currency": "USD",
+          "plans": [
+            { "name": "Starter", "amount": 0, "features": ["1 location", "Inventory tracking"], "cta": "Start free" },
+            { "name": "Shop", "amount": 49, "period": "mo", "highlight": true, "features": ["3 locations", "Smart reorders", "Supplier POs"] },
+            { "name": "Group", "amount": 149, "period": "mo", "features": ["Unlimited locations", "Priority support", "API access"] }
+          ]
+        },
+        {
+          "type": "testimonials",
+          "quotes": [
+            { "text": "We cut waste by a third in the first month.", "author": "Maria L.", "role": "Owner, Daily Drip" },
+            { "text": "Ordering used to take my Sunday. Now it takes five minutes.", "author": "Dev P.", "role": "Manager, Grind House" }
+          ]
+        },
+        {
+          "type": "faq",
+          "items": [
+            { "question": "Which POS systems do you support?", "answer": "Square, Toast and Clover today. See the [integrations list](/integrations)." },
+            { "question": "Can I cancel anytime?", "answer": "Yes. Plans are month-to-month." }
+          ]
+        },
+        { "type": "cta", "headline": "Try Brewly free for 30 days", "body": "No card required.", "button": { "label": "Get started" }, "form": { "action": "/signup" } }
+      ]
+    },
+    {
+      "path": "/integrations",
+      "title": "Integrations",
+      "sections": [
+        { "type": "hero", "headline": "Works with your POS" },
+        { "type": "features", "columns": 2, "items": [
+          { "title": "Square", "body": "Real-time sales sync." },
+          { "title": "Toast", "body": "Menu item mapping included." }
+        ] }
+      ]
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy",
+      "nav": false,
+      "sections": [
+        { "type": "faq", "heading": "Privacy", "items": [{ "question": "What data do you store?", "answer": "Only inventory and order data you send us." }] }
+      ]
+    }
+  ]
+}
