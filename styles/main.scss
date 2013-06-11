@@ -1,0 +1,79 @@
+// lib/build.js prepends `@use "sass:color";` and the theme variables ($primary, $accent, $dark).
+
+$light: #f7f9fc !default;
+$radius: 10px;
+$max: 1100px;
+
+@mixin bp($width) {
+  @media (max-width: $width) { @content; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; color: $dark; background: #fff; }
+a { color: $primary; }
+.container { max-width: $max; margin: 0 auto; padding: 0 20px; }
+.container.narrow { max-width: 760px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.muted { color: color.adjust($dark, $lightness: 45%); text-align: center; }
+
+.site-header {
+  position: sticky; top: 0; background: rgba(255, 255, 255, .92); backdrop-filter: blur(6px);
+  border-bottom: 1px solid #eee; z-index: 10;
+  .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-weight: 800; font-size: 20px; color: $dark; text-decoration: none; }
+  nav a { margin-left: 20px; color: $dark; text-decoration: none; opacity: .75;
+    &.active, &:hover { opacity: 1; color: $primary; } }
+}
+
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: $radius; font-weight: 600; text-decoration: none;
+  border: 2px solid $primary; cursor: pointer; font-size: 16px; transition: transform .1s ease;
+  &:hover { transform: translateY(-1px); }
+}
+.btn-primary { background: $primary; color: #fff; &:hover { background: color.adjust($primary, $lightness: -8%); } }
+.btn-ghost { background: transparent; color: $primary; }
+
+section { padding: 80px 0; @include bp(700px) { padding: 48px 0; } }
+h2 { font-size: 34px; text-align: center; margin: 0 0 40px; }
+
+.hero {
+  background: linear-gradient(135deg, $primary, color.adjust($primary, $hue: 35deg));
+  color: #fff; text-align: center; padding: 120px 0;
+  h1 { font-size: 52px; line-height: 1.1; margin: 0 0 16px; @include bp(700px) { font-size: 36px; } }
+  .eyebrow { text-transform: uppercase; letter-spacing: .12em; opacity: .85; }
+  .lead { font-size: 20px; opacity: .92; max-width: 680px; margin: 0 auto 32px; }
+  .btn-primary { background: #fff; color: $primary; border-color: #fff; }
+  .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .7); }
+  .actions .btn + .btn { margin-left: 12px; }
+}
+
+.grid { display: grid; gap: 24px;
+  @for $i from 1 through 4 { &.cols-#{$i} { grid-template-columns: repeat($i, 1fr); } }
+  @include bp(800px) { grid-template-columns: 1fr !important; }
+}
+
+.feature { padding: 24px; border-radius: $radius; background: $light;
+  .icon { font-size: 28px; } h3 { margin: 8px 0; } }
+
+.pricing { background: $light; }
+.plan {
+  position: relative; background: #fff; border-radius: $radius; padding: 32px; border: 1px solid #e6e9ef; display: flex; flex-direction: column;
+  &.highlight { border: 2px solid $primary; box-shadow: 0 12px 30px rgba($primary, .18); }
+  .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: $accent; color: $dark; padding: 2px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .amount { font-size: 40px; font-weight: 800; margin: 8px 0; span { font-size: 16px; font-weight: 400; opacity: .6; } }
+  ul { padding-left: 18px; flex: 1; }
+}
+
+.quote { margin: 0; padding: 24px; border-left: 4px solid $accent; background: $light; border-radius: 0 $radius $radius 0;
+  blockquote { margin: 0 0 12px; font-style: italic; } }
+
+.faq details { border-bottom: 1px solid #e6e9ef; padding: 16px 0;
+  summary { cursor: pointer; font-weight: 600; } }
+
+.cta { background: $dark; color: #fff; text-align: center;
+  .signup { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  input { padding: 12px; border-radius: $radius; border: 0; min-width: 280px; font-size: 16px; } }
+
+.logos ul { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; list-style: none; padding: 0; font-weight: 700; opacity: .5; }
+
+.site-footer { padding: 32px 0; text-align: center; color: color.adjust($dark, $lightness: 40%); border-top: 1px solid #eee; }
