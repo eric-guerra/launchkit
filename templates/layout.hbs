@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{#if site.lang}}{{site.lang}}{{else}}en{{/if}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{#if page.title}}{{page.title}} · {{/if}}{{site.title}}</title>
+  <meta name="description" content="{{#if page.description}}{{page.description}}{{else}}{{site.description}}{{/if}}">
+  {{#if canonical}}<link rel="canonical" href="{{canonical}}">{{/if}}
+  <meta property="og:title" content="{{#if page.title}}{{page.title}}{{else}}{{site.title}}{{/if}}">
+  <meta property="og:description" content="{{#if page.description}}{{page.description}}{{else}}{{site.description}}{{/if}}">
+  {{#if site.ogImage}}<meta property="og:image" content="{{site.ogImage}}">{{/if}}
+  <link rel="stylesheet" href="{{asset "main.css"}}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">{{site.title}}</a>
+      <nav>
+        {{#each nav}}<a href="{{path}}"{{#if (eq path ../page.path)}} class="active" aria-current="page"{{/if}}>{{#if label}}{{label}}{{else}}{{title}}{{/if}}</a>{{/each}}
+      </nav>
+    </div>
+  </header>
+  <main>
+    {{#each page.sections}}
+      {{#if (eq type "hero")}}{{> hero}}{{/if}}
+      {{#if (eq type "features")}}{{> features}}{{/if}}
+      {{#if (eq type "pricing")}}{{> pricing}}{{/if}}
+      {{#if (eq type "testimonials")}}{{> testimonials}}{{/if}}
+      {{#if (eq type "faq")}}{{> faq}}{{/if}}
+      {{#if (eq type "cta")}}{{> cta}}{{/if}}
+      {{#if (eq type "logos")}}{{> logos}}{{/if}}
+    {{/each}}
+  </main>
+  {{> footer}}
+</body>
+</html>
