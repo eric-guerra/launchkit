@@ -1,0 +1,11 @@
+<section class="hero" id="{{#if id}}{{id}}{{else}}top{{/if}}">
+  <div class="container">
+    {{#if eyebrow}}<p class="eyebrow">{{eyebrow}}</p>{{/if}}
+    <h1>{{headline}}</h1>
+    {{#if subheadline}}<p class="lead">{{md subheadline}}</p>{{/if}}
+    <div class="actions">
+      {{#if primary}}<a class="btn btn-primary" href="{{primary.href}}">{{primary.label}}</a>{{/if}}
+      {{#if secondary}}<a class="btn btn-ghost" href="{{secondary.href}}">{{secondary.label}}</a>{{/if}}
+    </div>
+  </div>
+</section>
