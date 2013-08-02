@@ -1,0 +1,13 @@
+<section class="testimonials">
+  <div class="container">
+    {{#if heading}}<h2>{{heading}}</h2>{{/if}}
+    <div class="grid cols-{{quotes.length}}">
+      {{#each quotes}}
+      <figure class="quote">
+        <blockquote>“{{text}}”</blockquote>
+        <figcaption><strong>{{author}}</strong>{{#if role}}, {{role}}{{/if}}</figcaption>
+      </figure>
+      {{/each}}
+    </div>
+  </div>
+</section>
