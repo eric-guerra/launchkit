@@ -1,0 +1,15 @@
+<section class="cta" id="{{#if id}}{{id}}{{else}}signup{{/if}}">
+  <div class="container">
+    <h2>{{headline}}</h2>
+    {{#if body}}<p>{{md body}}</p>{{/if}}
+    {{#if form}}
+    <form class="signup" action="{{form.action}}" method="post">
+      <label class="visually-hidden" for="cta-email">Email</label>
+      <input id="cta-email" type="email" name="email" placeholder="{{#if form.placeholder}}{{form.placeholder}}{{else}}you@company.com{{/if}}" required>
+      <button class="btn btn-primary" type="submit">{{button.label}}</button>
+    </form>
+    {{else}}
+    <a class="btn btn-primary" href="{{button.href}}">{{button.label}}</a>
+    {{/if}}
+  </div>
+</section>

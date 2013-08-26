@@ -1,0 +1,14 @@
+<section class="features" id="{{#if id}}{{id}}{{else}}features{{/if}}">
+  <div class="container">
+    {{#if heading}}<h2>{{heading}}</h2>{{/if}}
+    <div class="grid cols-{{#if columns}}{{columns}}{{else}}3{{/if}}">
+      {{#each items}}
+      <article class="feature">
+        {{#if icon}}<span class="icon" aria-hidden="true">{{icon}}</span>{{/if}}
+        <h3>{{title}}</h3>
+        <p>{{md body}}</p>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+</section>

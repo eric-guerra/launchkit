@@ -1,0 +1,11 @@
+<section class="faq" id="{{#if id}}{{id}}{{else}}faq{{/if}}">
+  <div class="container narrow">
+    <h2>{{#if heading}}{{heading}}{{else}}Frequently asked questions{{/if}}</h2>
+    {{#each items}}
+    <details id="{{slug question}}">
+      <summary>{{question}}</summary>
+      <p>{{md answer}}</p>
+    </details>
+    {{/each}}
+  </div>
+</section>
